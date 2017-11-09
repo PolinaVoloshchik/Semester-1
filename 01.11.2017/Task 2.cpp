@@ -1,40 +1,28 @@
 #include <iostream>
 using namespace std;
+int numberOfNoughts(long long int number, int i);
 
 int main()
 {
 	long long int n;
 	cout << "Enter n = ";
 	cin >> n;
-	int digit, i = 0;
-	while (n)
-	{
-		digit = n % 10;
-		switch (digit)
-		{
-		case 0:
-		{
-			i = i + 4;
-			break;
-		}
-		case 1: case 2: case 4: case 8:
-		{
-			i = i + 3;
-			break;
-		}
-		case 3: case 5: case 6: case 9:
-		{
-			i = i + 2;
-			break;
-		}
-		case 7:
-		{
-			i = i + 1;
-			break;
-		}
-		}
-		n = n / 10;
-	}
+	int i = 0;
+	i = numberOfNoughts(n, i);
 	cout << "Number of 0: " << i << endl;
 	system("pause");
+}
+
+int numberOfNoughts(long long int number, int i)
+{
+	int digit;
+	while (number >= 2)
+	{
+		digit = number % 2;
+		if (digit == 0)
+			i++;
+		number = number / 2;
+	}
+	if (number == 0) i++;
+	return i;
 }
