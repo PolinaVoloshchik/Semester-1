@@ -1,8 +1,38 @@
 #include <iostream>
 using namespace std;
 
+void swap(int& a, int& b);
+double moreThan(double value);
+double lessThan(double value);
+double between(double a, double b);
+double cosTaylor(double x, double eps);
+double sinTaylor(double x, double eps);
+long long int inverseNumber(long long int x);
+bool isPolindrome(long long int a, long long int b);
+void counterOfSigns(long long int x, int& less, int& more, int& equal);
+void whatSequence(long long int n, int less, int more, int equal);
+void countRepeatingDigit(int i, long long int x, int digit);
+long long int replacing(long long int n, int n1, int n2);
+long long int deleting(long long int n, int n1);
+int numberOfUnits(long long int number, int i);
+int numberOfNoughts(long long int number, int i);
+void convertSymbolToNumber(char symbol, int& digit);
+int countDigitS(long long int number, int i, int digitS);
 
-//РћРїСЂРµРґРµР»СЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ С… Р±РѕР»СЊС€Рµ Р·Р°РґР°РЅРЅРѕРіРѕ value
+
+
+
+void swap(int& a, int& b)
+{
+	int c;
+	c = a;
+	a = b;
+	b = c;
+}
+
+
+
+//Проверка x> введенного значения
 double moreThan(double value)
 {
 	double x;
@@ -17,7 +47,7 @@ double moreThan(double value)
 }
 
 
-//РћРїСЂРµРґРµР»СЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ С… РјРµРЅСЊС€Рµ Р·Р°РґР°РЅРЅРѕРіРѕ value
+//Проверка x< введенного значения
 double lessThan(double value)
 {
 	double x;
@@ -32,7 +62,7 @@ double lessThan(double value)
 }
 
 
-//РћРїСЂРµРґРµР»СЏРµС‚, РЅР°С…РѕРґРёС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ С… РјРµР¶РґСѓ a Рё b
+//Проверка нахождения х между двумя введенными величинами
 double between(double a, double b)
 {
 	double eps;
@@ -48,7 +78,7 @@ double between(double a, double b)
 
 
 
-//РќР°С…РѕР¶РґРµРЅРёРµ РєРѕСЃРёРЅСѓСЃР° С‡РёСЃР»Р° СЃ РїРѕРјРѕС‰СЊСЋ СЂСЏРґР° РўРµР№Р»РѕСЂР°
+//Нахождение косинуса числа с помощью ряда Тейлора
 double cosTaylor(double x, double eps)
 {
 	double term = x, sum = 0;
@@ -63,7 +93,7 @@ double cosTaylor(double x, double eps)
 
 
 
-//РќР°С…РѕР¶РґРµРЅРёРµ СЃРёРЅСѓСЃР° С‡РёСЃР»Р° СЃ РїРѕРјРѕС‰СЊСЋ СЂСЏРґР° РўРµР№Р»РѕСЂР°
+//Нахождение синуса числа с помощью ряда Тейлора
 double sinTaylor(double x, double eps)
 {
 	double term = x, sum = 0;
@@ -76,7 +106,7 @@ double sinTaylor(double x, double eps)
 }
 
 
-//РќР°С…РѕРґРёС‚ С‡РёСЃР»Рѕ-РїРµСЂРµРІС‘СЂС‚С‹С€ Рє РґР°РЅРЅРѕРјСѓ
+//Находит число-перевёртыш к данному
 long long int inverseNumber(long long int x)
 {
 	long long inverse = 0;
@@ -92,7 +122,7 @@ long long int inverseNumber(long long int x)
 
 
 
-//РћРїСЂРµРґРµР»СЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ РїР°Р»РёРЅРґСЂРѕРјРѕРј (С‡РёС‚Р°РµС‚СЃСЏ РѕРґРёРЅР°РєРѕРІРѕ СЃРїСЂР°РІР° РЅР°Р»РµРІРѕ Рё СЃР»РµРІР° РЅР°РїСЂР°РІРѕ), РіРґРµ Р° - СЃР°РјРѕ С‡РёСЃР»Рѕ, b - РїРµСЂРµРІС‘СЂС‚С‹С€
+//Определяет, является ли число палиндромом (читается одинаково справа налево и слева направо), где а - само число, b - перевёртыш
 bool isPolindrome(long long int a, long long int b)
 {
 	if (a == b)
@@ -101,7 +131,7 @@ bool isPolindrome(long long int a, long long int b)
 }
 
 
-//РЎС‡РёС‚Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·РЅР°РєРѕРІ <, >, = РјРµР¶РґСѓ С†РёС„СЂР°РјРё РІ С‡РёСЃР»Рµ
+//Считает количество знаков <, >, = между цифрами в числе
 void counterOfSigns(long long int x, int& less, int& more, int& equal)
 {
 	int prev = x % 10, next = 0;
@@ -119,7 +149,7 @@ void counterOfSigns(long long int x, int& less, int& more, int& equal)
 
 
 
-//РћРїСЂРµРґРµР»СЏРµС‚, РєР°РєСѓСЋ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РѕР±СЂР°Р·СѓСЋС‚ С†РёС„СЂС‹ С‡РёСЃР»Р°
+//Определяет, какую последовательность образуют цифры числа
 void whatSequence(long long int n, int less, int more, int equal)
 {
 	if ((less == 0) && (equal == 0))
@@ -137,7 +167,7 @@ void whatSequence(long long int n, int less, int more, int equal)
 }
 
 
-//РќР°С…РѕРґРёС‚ РґР»РёРЅСѓ СЃР°РјРѕР№ РґР»РёРЅРЅРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РїРѕРІС‚РѕСЂСЏСЋС‰РµР№СЃСЏ С†РёС„СЂС‹ РІ С‡РёСЃР»Рµ Рё СЃР°РјСѓ СЌС‚Сѓ С†РёС„СЂСѓ
+//Находит длину самой длинной последовательности повторяющейся цифры в числе и саму эту цифру
 void countRepeatingDigit(int i, long long int x, int digit)
 {
 	int prevCur = 0, nextCur = 0, digitCur = 0, iCur = 1;
@@ -166,7 +196,7 @@ void countRepeatingDigit(int i, long long int x, int digit)
 
 
 
-//Р—Р°РјРµРЅСЏРµС‚ РІ С‡РёСЃР»Рµ n С†РёС„СЂСѓ n1 РЅР° С†РёС„СЂСѓ n2, РїСЂРё СЌС‚РѕРј РїРµСЂРµРІРѕСЂР°С‡РёРІР°СЏ РµРіРѕ СЃРїСЂР°РІР° РЅР°Р»РµРІРѕ
+//Заменяет в числе n цифру n1 на цифру n2, при этом переворачивая его справа налево
 long long int replacing(long long int n, int n1, int n2)
 {
 	long long newN = 0;
@@ -182,7 +212,7 @@ long long int replacing(long long int n, int n1, int n2)
 }
 
 
-//РЈРґР°Р»СЏРµС‚ РІСЃРµ РІС…РѕР¶РґРµРЅРёСЏ Р·Р°РґР°РЅРЅРѕР№ С†РёС„СЂС‹ n1 РёР· С‡РёСЃР»Р° n, РїСЂРё СЌС‚РѕРј РїРµСЂРµРІРѕСЂР°С‡РёРІР°СЏ РµРіРѕ СЃРїСЂР°РІР° РЅР°Р»РµРІРѕ
+//Удаляет все вхождения заданной цифры n1 из числа n, при этом переворачивая его справа налево
 long long int deleting(long long int n, int n1)
 {
 	long long newN = 0;
@@ -197,7 +227,7 @@ long long int deleting(long long int n, int n1)
 }
 
 
-//РќР°С…РѕРґРёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РµРґРёРЅРёС† РІ РґРІРѕРёС‡РЅРѕР№ Р·Р°РїРёСЃРё С‡РёСЃР»Р°
+//Находит количество единиц в двоичной записи числа
 int numberOfUnits(long long int number, int i)
 {
 	int digit;
@@ -214,7 +244,7 @@ int numberOfUnits(long long int number, int i)
 
 
 
-//РќР°С…РѕРґРёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅСѓР»РµР№ РІ РґРІРѕРёС‡РЅРѕР№ Р·Р°РїРёСЃРё С‡РёСЃР»Р°
+//Находит количество нулей в двоичной записи числа
 int numberOfNoughts(long long int number, int i)
 {
 	int digit;
@@ -230,7 +260,7 @@ int numberOfNoughts(long long int number, int i)
 }
 
 
-//РљРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ СЃРёРјРІРѕР» РІ С€РµСЃС‚РЅР°РґС†Р°С‚РёСЂРёС‡РѕР№ СЃРёСЃС‚РµРјРµ РІ РѕСЃС‚Р°С‚РѕРє РѕС‚ РґРµР»РµРЅРёСЏ РЅР° 16
+//Конвертирует символ в шестнадцатиричой системе в остаток от деления на 16
 void convertSymbolToNumber(char symbol, int& digit)
 {
 	switch (symbol)
@@ -285,8 +315,8 @@ void convertSymbolToNumber(char symbol, int& digit)
 
 
 
-//РќР°С…РѕРґРёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС…РѕР¶РґРµРЅРёР№ i РґР°РЅРЅРѕРіРѕ СЃРёРјРІРѕР»Р° digitS РІ С€РµСЃС‚РЅР°РґС†Р°С‚РёСЂРёС‡РЅРѕР№ Р·Р°РїРёСЃРё С‡РёСЃР»Р° number
-int counter(long long int number, int i, int digitS)
+//Находит количество вхождений i данного символа digitS в шестнадцатиричной записи числа number
+int countDigitS(long long int number, int i, int digitS)
 {
 	int digit;
 	while (number)
