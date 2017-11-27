@@ -1,5 +1,4 @@
 #include <iostream>
-#include "String.h"
 #include "FunctionsForArrays.h"
 
 using namespace std;
@@ -11,7 +10,7 @@ int main()
 	int n = enterNumberOfElementsOfArray(array, N);
 	enterArray(array, n);
 	displayArray(array, n);
-	sortIncrease(array, n);
+	sortIncreaseDIM(array, n);
 	displayArray(array, n);
 	system("pause");
 }
