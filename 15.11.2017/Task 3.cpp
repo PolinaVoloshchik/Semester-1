@@ -3,33 +3,27 @@
 
 using namespace std;
 
-int findOrder(char leftarray[], char rightarray[]);
-
 int main()
 {
 	const int N = 100;
 	char leftarray[N], rightarray[N];
 	cout << "Enter first string: ";
-	cin >> leftarray;
+	cin.getline (leftarray, N);
 	cout << "Enter second string: ";
-	cin >> rightarray;
+	cin.getline (rightarray, N);
 
 	int x = findOrder(leftarray, rightarray);
-	if (x) cout << "First string is bigger than second one" << endl;
-	else cout << "Second string is bigger than first one" << endl;
-	system("pause");
-}
-
-int findOrder(char leftarray[], char rightarray[])
-{
-	int i = 0, j = 0;
-	while (leftarray[i] == rightarray[j])
+	switch (x)
 	{
-		i++;
-		j++;
+	case 0: 
+		cout << "Second string is bigger than first one" << endl;
+		break;
+	case 1: 
+		cout << "First string is bigger than second one" << endl;
+		break;
+	case -1:
+		cout << "Strings are equal" << endl;
+		break;
 	}
-	if (leftarray[i] > rightarray[j])
-		return 1;
-	else
-		return 0;
+	system("pause");
 }
