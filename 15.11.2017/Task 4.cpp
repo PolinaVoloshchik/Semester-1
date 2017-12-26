@@ -14,6 +14,10 @@ int main()
 	cin.getline (substring, N);
 
 	int index = findIndexSubstring(string, substring);
-	cout << index << endl;
+
+	if (index == -1)
+		cout << "String doesn't contain substring" << endl;
+	else
+		cout << index << endl;
 	system("pause");
 }
